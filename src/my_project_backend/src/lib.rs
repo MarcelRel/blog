@@ -1,10 +1,13 @@
 use std::cell::RefCell;
 
 use crate::blog::Blog;
+use crate::config::Config;
 
 mod blog;
+mod config;
 
 thread_local! {
+    static CONFIG: RefCell<Config> = RefCell::new(Config::new());
     static BLOGS: RefCell<Vec<Blog>> = RefCell::new(Vec::new());
 }
 
